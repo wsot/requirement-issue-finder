@@ -1,22 +1,10 @@
 import collections
-import contextlib
-import enum
-import os
-import re
-import shutil
-import subprocess
-import sys
 import typing as t
-import warnings
 
-import requirements
 from requirements import requirement
 
 PIPTOOLS_VIA_MULTILINE_PREFIX = "    #   "
 PIPTOOLS_VIA_PREFIX = "    # via"
-
-PIP_COMPILE_ERROR_REGEX = "Could not find a version that matches ([^<>=\^~]+)"
-PIP_COMPILE_INCOMPATIBLE_VERSION_REGEX = ".*\(from ([^<>=\^~]+)[<>=\^~]"
 
 
 class Requirement(requirement.Requirement):
@@ -111,6 +99,8 @@ class RequirementsParser:
             pass
         for dependency_target, dependent_packages in self._requirements_dependent_on.items():
             for pkg in dependent_packages:
-                self._requirements_by_name[dependency_target].requirement_for.append(self._requirements_by_name[pkg])
+                self._requirements_by_name[dependency_target].requirement_for.append(
+                    self._requirements_by_name[pkg]
+                )
 
         return list(self._requirements_by_name.values())
