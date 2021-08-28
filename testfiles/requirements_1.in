@@ -1,0 +1,5 @@
+django-filter==2.3.0
+django-health-check
+graphene-django==2.13.0
+graphql-core==2.3.2
+

@@ -1,4 +1,3 @@
-from typing_extensions import Protocol
 from searcher import BinarySearcher, EndNodeReached
 import pytest
 
@@ -14,11 +13,6 @@ class ThingToBeSearched:
         return self._children or None
 
 
-# Edge cases to test
-# - odd number of nodes
-# - differing depths
-
-
 class TestBinarySearcher:
     def test_single_chain(self):
         things_to_be_searched = [ThingToBeSearched("A", [ThingToBeSearched("A.A", [ThingToBeSearched("A.A.A")])])]
@@ -32,7 +26,7 @@ class TestBinarySearcher:
             subset = binary_searcher.failed()
         excinfo.value.requirement.name = "A.A.A"
         subset = binary_searcher.passed()
-        assert subset == None
+        assert subset is None
 
     def test_single_layer_pair(self):
         things_to_be_searched = [ThingToBeSearched("A"), ThingToBeSearched("B")]

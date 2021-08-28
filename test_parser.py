@@ -1,1 +1,1 @@
-import reqparser
+from reqparser import Requirement, RequirementsParser
