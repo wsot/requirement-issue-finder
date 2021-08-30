@@ -52,3 +52,6 @@ sqlparse==0.4.1
     # via django
 unidecode==1.2.0
     # via graphene-django
+
+# A footer
+# footy footy foot

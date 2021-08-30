@@ -1,0 +1,7 @@
+graphene==2.1.9
+    # via graphene-django
+graphene-django==2.13.0
+    # via -r requirements_1.in
+
+# this is a footer
+# footy footy foot
